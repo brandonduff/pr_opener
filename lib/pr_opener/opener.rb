@@ -7,7 +7,9 @@ module PROpener
     end
 
     def open
-      logger.puts 'PR Opened Successfully'
+      if github_client.open(branch).successful?
+        logger.puts 'PR Opened Successfully'
+      end
     end
 
     private

@@ -10,3 +10,6 @@ Then("Github should respond with success") do
   step('the output should contain "PR Opened Successfully"')
 end
 
+When(/^(.*) within a cassette named "([^"]*)"$/) do |step, cassette_name|
+  VCR.use_cassette(cassette_name) { When step }
+end
